@@ -1,19 +1,8 @@
 ﻿namespace Poker.Models
 {
-    public enum Suit
-    {
-        Hearts=0,
-        Diamonds,
-        Spades,
-        Clubs
-    }
-
-    public enum Rank
-    {
-        Two=2, Three, Four, Five, Six, Seven, Eight, Nine, Ten,
-        Jack, Queen, King, Ace
-    }
-
+    /// <summary>
+    /// Represents game card with suit and rank
+    /// </summary>
     public class Card
     {
         public Suit Suit { get; }
@@ -25,9 +14,23 @@
             Rank = rank;
         }
 
+        /// <summary>
+        /// Gets card's hash
+        /// </summary>
+        /// <returns>Card number</returns>
         public override int GetHashCode()
         {
             return (int)Suit * 13 + (int)Rank - 2;
+        }
+
+        /// <summary>
+        /// Creates new card from hash
+        /// </summary>
+        /// <param name="hash">Card number</param>
+        /// <returns>New card</returns>
+        public static Card FromHashCode(int hash)
+        {
+            return new Card((Suit)(hash/13),(Rank)(hash%13+2));
         }
     }
 }
