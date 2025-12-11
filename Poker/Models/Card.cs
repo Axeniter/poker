@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Poker.Models
+﻿namespace Poker.Models
 {
     public enum Suit
     {
-        Hearts,
+        Hearts=0,
         Diamonds,
         Spades,
         Clubs
@@ -29,6 +23,11 @@ namespace Poker.Models
         { 
             Suit = suit;
             Rank = rank;
+        }
+
+        public override int GetHashCode()
+        {
+            return (int)Suit * 13 + (int)Rank - 2;
         }
     }
 }
