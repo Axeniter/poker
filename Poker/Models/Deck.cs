@@ -12,7 +12,8 @@ namespace Poker.Models
     {
         private static readonly IEnumerable<Card> _cards;
         private static readonly RandomNumberGenerator _rng;
-        private List<Card> _deck;
+
+        private Card[] _deck;
         private int _takeIndex;
         static Deck()
         {
@@ -29,11 +30,11 @@ namespace Poker.Models
         /// </summary>
         public Deck()
         {
-            _deck = Shuffle().ToList();
-            _takeIndex = _deck.Count;
+            _deck = Shuffle();
+            _takeIndex = _deck.Length;
         }
 
-        private static IEnumerable<Card> Shuffle()
+        private static Card[] Shuffle()
         {
             var shuffled = _cards.ToArray();
 
