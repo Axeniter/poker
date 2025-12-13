@@ -5,7 +5,7 @@
     /// </summary>
     public enum RoundType
     {
-        PreFlop = 0,
+        PreFlop,
         Flop,
         Turn,
         River

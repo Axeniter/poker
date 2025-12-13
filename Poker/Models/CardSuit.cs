@@ -3,9 +3,9 @@
     /// <summary>
     /// Represents card suit
     /// </summary>
-    public enum Suit
+    public enum CardSuit
     {
-        Hearts = 0,
+        Hearts,
         Diamonds,
         Spades,
         Clubs
