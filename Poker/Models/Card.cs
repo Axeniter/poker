@@ -5,10 +5,10 @@
     /// </summary>
     public class Card
     {
-        public Suit Suit { get; }
-        public Rank Rank { get; }
+        public CardSuit Suit { get; }
+        public CardRank Rank { get; }
 
-        public Card(Suit suit, Rank rank)
+        public Card(CardSuit suit, CardRank rank)
         { 
             Suit = suit;
             Rank = rank;
@@ -30,7 +30,7 @@
         /// <returns>New card</returns>
         public static Card FromHashCode(int hash)
         {
-            return new Card((Suit)(hash/13),(Rank)(hash%13+2));
+            return new Card((CardSuit)(hash/13),(CardRank)(hash%13+2));
         }
     }
 }
